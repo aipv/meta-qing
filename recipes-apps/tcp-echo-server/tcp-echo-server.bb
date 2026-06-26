@@ -1,7 +1,8 @@
-UMMARY = "TCP Echo Server"
+SUMMARY = "TCP Echo Server"
+DESCRIPTION = "A simple TCP echo server that echoes back received data"
 
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=df3de8a35cdff2e5437a99525cdcd1a2"
+LIC_FILES_CHKSUM = "file://${THISDIR}/LICENSE;md5=df91d3c006831f6a500cdcff355b065a"
 
 SRC_URI = "git://github.com/aipv/tcp_echo_server.git;branch=main;protocol=https"
 
