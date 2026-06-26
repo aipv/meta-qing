@@ -1,41 +1,49 @@
-This README file contains information on the contents of the meta-qing layer.
+# meta-qing Layer
 
-Please see the corresponding sections below for details.
+TCP Echo Server recipe for Yocto/OpenEmbedded builds.
 
-Dependencies
-============
+## Layer Dependencies
 
-  URI: <first dependency>
-  branch: <branch name>
+- `core` (OE-Core)
 
-  URI: <second dependency>
-  branch: <branch name>
+## Quick Start
 
-  .
-  .
-  .
+Add the layer to your build:
 
-Patches
-=======
+```bash
+bitbake-layers add-layer meta-qing
+```
 
-Please submit any patches against the meta-qing layer to the xxxx mailing list (xxxx@zzzz.org)
-and cc: the maintainer:
+## Installing TCP Echo Server
 
-Maintainer: XXX YYYYYY <xxx.yyyyyy@zzzzz.com>
+To include the TCP Echo Server in your image:
 
-Table of Contents
-=================
+```bash
+echo 'IMAGE_INSTALL:append = " tcp-echo-server"' >> conf/local.conf
+```
 
-  I. Adding the meta-qing layer to your build
- II. Misc
+Or in your custom image recipe:
 
+```bash
+IMAGE_INSTALL += "tcp-echo-server"
+```
 
-I. Adding the meta-qing layer to your build
-=================================================
+## Services
 
-Run 'bitbake-layers add-layer meta-qing'
+The TCP Echo Server includes a systemd service unit (`tcp-echo-server.service`) that is automatically enabled on boot.
 
-II. Misc
-========
+To start the service:
 
---- replace with specific information about the meta-qing layer ---
+```bash
+systemctl start tcp-echo-server
+```
+
+To check status:
+
+```bash
+systemctl status tcp-echo-server
+```
+
+## Maintenance
+
+Maintained by: Qing Zhou
